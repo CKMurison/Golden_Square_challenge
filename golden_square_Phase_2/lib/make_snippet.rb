@@ -5,4 +5,4 @@ def make_snippet(text)
  else 
   return words[0,5].join(" ") + (" ...")
  end
-end
+end 
