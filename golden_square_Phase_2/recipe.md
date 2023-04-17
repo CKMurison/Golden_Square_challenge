@@ -1,23 +1,22 @@
 1. As a user
-So that I can manage my time
-I want to see an estimate of reading time for a text, assuming that I can read 200 words a minute.
+As a user
+So that I can keep track of my tasks
+I want to check if a text includes the string #TODO.
 
 Include the name of the method, its parameters, return value, and side effects.
 2. 
-reading_time = calculate_reading_time(text)
-text is a string
-reading_time is an int representing minutes
+check_string(text)
+# text is a string with words in it
+# check_string return true if #TODO is included in text
+
 3. 
 EXAMPLE TESTS
 
-calculate_reading_time(0)
-  => 0
+check_string("")
+# throws an error
 
-calculate_reading_time(1)
- => 1
+check_grammar("#TODO, buy toothpaste")
+# return true
 
-calculate_reading_time(TWO_HUNDRED_WORDS)
- => 1
-
-calculate_reading_time(FOUR_HUNDRED_WORDS)
- => 2
+check_grammar("Buy toothpaste")
+# return false
