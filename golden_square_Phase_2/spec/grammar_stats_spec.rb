@@ -19,6 +19,9 @@ RSpec.describe GrammarStats do
   context "returns an integer based on the correct % of grammar" do
     it "returns 0" do
      grammar_stats = GrammarStats.new
+     grammar_stats.check("toilet")
+     grammar_stats.check("toilet")
+     grammar_stats.check("toilet")
      result = grammar_stats.percentage_good
      expect(result).to eq 0
     end
@@ -38,6 +41,11 @@ RSpec.describe GrammarStats do
       grammar_stats.check("Hello world.")
       grammar_stats.check("Hello world.")
       expect(grammar_stats.percentage_good).to eq 50
+    end
+  end
+  context "when given a sentance with a cpaital and a !" do
+    it "returns true" do
+      expect(check_grammar("Hello I am Cameron!")).to eq true
     end
   end
 end
