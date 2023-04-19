@@ -3,12 +3,8 @@
 ## 1. Describe the Problem
 
 As a user
-So that I can keep track of my tasks
-I want a program that I can add todo tasks to and see a list of them.
-
-As a user
-So that I can focus on tasks to complete
-I want to mark tasks as complete and have them disappear from the list.
+So that I can keep track of my music listening
+I want to add tracks I've listened to and see a list of them.
 
 ## 2. Design the Class Interface
 
@@ -17,27 +13,19 @@ _Include the initializer and public methods with all parameters and return value
 ```ruby
 # EXAMPLE
 
-class ToDo
-  def initialize 
-   @list = []
+class MusicTracker
+
+  def initialize
+   @songs = []
   end
 
-  def add(task)
-    @list << task
-  end
-
-  def remove_finished_task(task)
-  if @list.include?(task)
-      @list.delete(task)
-  else 
-    return "This task doesn't exist"
-  end 
+  def add(song)
+    @songs << song
   end
 
   def list
-    return @list
+    return @songs
   end
-
 end
 ```
 
@@ -46,34 +34,18 @@ end
 _Make a list of examples of how the class will behave in different situations._
 
 ```ruby
-todo = ToDo.new
-todo.list => []
+music_tracker = MusicTracker.new
+music_tracker.list = []
 
-todo = ToDo.new
-todo.add("toilet")
-todo.list = ["toilet"]
+music_tracker = MusicTracker.new
+music_tracker.add("Sabotage - The Beastie Boys")
+music_tracker.list = ["Sabotage - The Beastie Boys"]
 
-todo = ToDo.new
-todo.add("toilet")
-todo.add("bbq")
-todo.add("swamp")
-todo.add("greggs")
-todo.list = ["toilet", "bbq", "swamp", "greggs"]
-
-todo = ToDo.new
-todo.add("toilet")
-todo.add("bbq")
-todo.add("swamp")
-todo.add("greggs")
-todo.remove_finished_task("toilet")
-todo.list = ["bbq", "swamp", "greggs"]
-
-todo = ToDo.new
-todo.add("toilet")
-todo.add("bbq")
-todo.add("swamp")
-todo.add("greggs")
-todo.remove_finished_task("nice") = "This task does not exist"
+music_tracker = MusicTracker.new
+music_tracker.add("Sabotage - The Beastie Boys")
+music_tracker.add("Wish you were here - Pink Floyd")
+music_tracker.add("Moanin - Bobby Timmons")
+music_tracker.list = ["Sabotage - The Beastie Boys", "Wish you were here - Pink Floyd", "Moanin - Bobby Timmons"]
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
