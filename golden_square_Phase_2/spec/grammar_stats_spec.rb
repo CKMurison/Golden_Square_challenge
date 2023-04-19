@@ -3,17 +3,20 @@ require "grammar_stats"
 RSpec.describe GrammarStats do
   context "given an empty string" do
     it "fails" do
-      expect { check_grammar("") }.to raise_error "Not a sentence."
+      grammar_stats = GrammarStats.new
+      expect { grammar_stats.check("") }.to raise_error "Not a sentence."
     end
   end
   context "Given a sentence with correct grammar" do
     it "returns true" do
-      expect(check_grammar("Hello I am Cameron.")).to eq true
+      grammar_stats = GrammarStats.new
+      expect(grammar_stats.check("Hello I am Cameron.")).to eq true
     end
   end
   context "given a sentence with incorrect grammar" do
     it "fails" do
-      expect(check_grammar("hello I am cameron")).to eq false
+      grammar_stats = GrammarStats.new
+      expect(grammar_stats.check("hello I am cameron")).to eq false
     end
   end
   context "returns an integer based on the correct % of grammar" do
@@ -45,7 +48,42 @@ RSpec.describe GrammarStats do
   end
   context "when given a sentance with a cpaital and a !" do
     it "returns true" do
-      expect(check_grammar("Hello I am Cameron!")).to eq true
+      grammar_stats = GrammarStats.new
+      expect(grammar_stats.check("Hello I am Cameron!")).to eq true
+    end
+  end
+
+  context "when given a sentance with a cpaital and a ?" do
+    it "returns true" do
+      grammar_stats = GrammarStats.new
+      expect(grammar_stats.check("Hello I am Cameron?")).to eq true
+    end
+  end
+
+  context "Returns 55% if 11 of 20 checks have passed" do
+    it'returns 55' do
+      result1 = GrammarStats.new
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("Hello world.")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      result1.check("hello world")
+      expect(result1.percentage_good).to eq 55
     end
   end
 end
