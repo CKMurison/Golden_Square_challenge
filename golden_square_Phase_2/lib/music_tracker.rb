@@ -13,7 +13,3 @@ class MusicTracker
   end
 
 end
-
-songs = MusicTracker.new
-songs.add("swamp world - Lizzo")
-p songs.list
