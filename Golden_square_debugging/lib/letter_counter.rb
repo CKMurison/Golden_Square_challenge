@@ -13,7 +13,6 @@ class LetterCounter
       if counter[char] > most_common_count        # if a letter pops up twice,
         most_common = char                        # most_common becomes that letter
         most_common_count = counter[char]        #! mcc becomes 1 bigger than the frequency of the biggest number
-        
       end
     end
     return [most_common_count, most_common]
